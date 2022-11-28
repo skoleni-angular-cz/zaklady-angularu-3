@@ -1,0 +1,9 @@
+/* Add application styles & imports to this file! */
+
+body {
+  padding: 16px;
+}
+
+input.ng-touched.ng-invalid {
+  background-color: coral;
+}

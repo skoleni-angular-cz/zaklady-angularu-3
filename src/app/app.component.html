@@ -1,0 +1,27 @@
+<div class="container">
+  <ul class="nav nav-tabs mb-3">
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link"
+        [class.active]="activeTab === 'basicInfo'"
+        (click)="changeTab($event, 'basicInfo')"
+      >Informace o účtu</a>
+    </li>
+    <li class="nav-item">
+      <a
+        href="#"
+        class="nav-link"
+        [class.active]="activeTab === 'advancedInfo'"
+        (click)="changeTab($event, 'advancedInfo')"
+      >Osobní údaje</a>
+    </li>
+  </ul>
+
+  <app-template-driven-user-basic-info
+    *ngIf="activeTab === 'basicInfo'"
+  ></app-template-driven-user-basic-info>
+  <app-reactive-user-advanced-info
+    *ngIf="activeTab === 'advancedInfo'"
+  ></app-reactive-user-advanced-info>
+</div>

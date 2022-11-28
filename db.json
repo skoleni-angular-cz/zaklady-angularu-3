@@ -1,0 +1,24 @@
+{
+  "user-basic-info": [
+    {
+      "id": 1,
+      "isAdmin": true,
+      "username": "jnovak",
+      "email": "jan.novak@company.com"
+    }
+  ],
+  "user-advanced-info": [
+    {
+      "firstName": "Jan",
+      "lastName": "Novák",
+      "gender": "MALE",
+      "age": 31,
+      "address": {
+        "street": "Příčná 15",
+        "city": "Praha 2",
+        "country": "cz"
+      },
+      "id": 1
+    }
+  ]
+}
