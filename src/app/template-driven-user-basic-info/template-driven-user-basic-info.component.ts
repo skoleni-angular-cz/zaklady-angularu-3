@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TemplateDrivenUserBasicInfoComponent implements OnInit {
 
+  isAdmin?: boolean;
+  username?: string;
+  email?: string;
+
   constructor() {}
 
   ngOnInit() {}

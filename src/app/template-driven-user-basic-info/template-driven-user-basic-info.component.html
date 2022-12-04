@@ -1,14 +1,14 @@
 <form (ngSubmit)="onSubmit()">
   <div class="mb-2">
-    <input class="form-check-input" type="checkbox" id="isAdmin"/>
+    <input class="form-check-input" type="checkbox" id="isAdmin" name="isAdmin" [(ngModel)]="isAdmin"/>
     <label class="form-check-label" for="isAdmin">
       Přiřadit roli Administrátor
     </label>
   </div>
   <label for="username">Uživatelské jméno *</label>
-  <input type="text" class="form-control mb-2" id="username"/>
+  <input type="text" class="form-control mb-2" id="username" name="username" [(ngModel)]="username" required/>
   <label for="email">E-mail *</label>
-  <input type="email" class="form-control mb-2" id="email"/>
+  <input type="email" class="form-control mb-2" id="email" name="email" [(ngModel)]="email" required email/>
 
   <div class="text-end">
     <button type="submit" class="btn btn-lg btn-success my-4">
