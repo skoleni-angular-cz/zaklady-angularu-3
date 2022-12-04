@@ -1,18 +1,18 @@
-<form (ngSubmit)="submitForm()">
+<form [formGroup]="form" (ngSubmit)="submitForm()">
   <div class="row">
     <div class="col-6">
       <label for="firstName">Jméno *</label>
-      <input type="text" class="form-control mb-2" id="firstName" />
+      <input formControlName="firstName" type="text" class="form-control mb-2" id="firstName" />
     </div>
     <div class="col-6">
       <label for="lastName">Příjmení *</label>
-      <input type="text" class="form-control mb-2" id="lastName" />
+      <input formControlName="lastName" type="text" class="form-control mb-2" id="lastName" />
     </div>
   </div>
   <div class="row">
     <div class="col-6">
       <label for="age">Věk (alespoň 18 let)</label>
-      <input type="number" class="form-control mb-2" id="age" />
+      <input formControlName="age" type="number" class="form-control mb-2" id="age" />
     </div>
     <div class="col-6">
       <div>Pohlaví</div>
@@ -22,6 +22,7 @@
           type="radio"
           name="gender"
           id="male"
+          formControlName="gender"
           [value]="UserGender.MALE"
         />
         <label class="form-check-label" for="male"> Muž </label>
@@ -32,6 +33,7 @@
           type="radio"
           name="gender"
           id="female"
+          formControlName="gender"
           [value]="UserGender.FEMALE"
         />
         <label class="form-check-label" for="female"> Žena </label>
@@ -41,15 +43,15 @@
   <h3>Adresa</h3>
   <ng-container formGroupName="address">
     <label for="street">Ulice a č.p. *</label>
-    <input type="text" class="form-control mb-2" id="street" />
+    <input formControlName="street" type="text" class="form-control mb-2" id="street" />
     <div class="row">
       <div class="col-8">
         <label for="street">Město *</label>
-        <input type="text" class="form-control mb-2" id="street" />
+        <input formControlName="city" type="text" class="form-control mb-2" id="street" />
       </div>
       <div class="col-4">
         <label for="country">Stát *</label>
-        <select id="country" class="form-control">
+        <select formControlName="country" id="country" class="form-control">
           <option value="cz">Česko</option>
           <option value="sk">Slovensko</option>
         </select>
