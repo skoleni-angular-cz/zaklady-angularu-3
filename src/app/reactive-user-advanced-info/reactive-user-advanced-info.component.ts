@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { UserGender } from '../model';
+import { FormApiService } from '../form-api.service';
+import { UserAdvancedInfoDto, UserGender } from '../model';
 
 @Component({
   selector: 'app-reactive-user-advanced-info',
@@ -23,12 +24,26 @@ export class ReactiveUserAdvancedInfoComponent implements OnInit {
 
   readonly UserGender = UserGender;
 
-  constructor() {}
+  constructor(
+    private formApiService: FormApiService,
+  ) {}
 
-  ngOnInit() {}
+  async ngOnInit() {
+    const userAdvancedInfo = await this.formApiService.getUserAdvancedInfo();
+    this.form.patchValue(userAdvancedInfo);
+  }
 
-  submitForm() {}
+  async submitForm() {
+    if (this.form.valid) {
+      await this.formApiService.submitUserAdvancedInfo(
+        this.form.value as Required<UserAdvancedInfoDto>
+      );
+    }
+  }
 
-  resetForm() {}
+  resetForm() {
+    this.form.reset();
+    this.form.get('gender')!.reset(UserGender.MALE);
+  }
 
 }
