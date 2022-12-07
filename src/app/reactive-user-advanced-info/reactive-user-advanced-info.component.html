@@ -1,67 +1,69 @@
-<form (ngSubmit)="submitForm()">
-  <div class="row">
-    <div class="col-6">
-      <label for="firstName">Jméno *</label>
-      <input type="text" class="form-control mb-2" id="firstName" />
-    </div>
-    <div class="col-6">
-      <label for="lastName">Příjmení *</label>
-      <input type="text" class="form-control mb-2" id="lastName" />
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-6">
-      <label for="age">Věk (alespoň 18 let)</label>
-      <input type="number" class="form-control mb-2" id="age" />
-    </div>
-    <div class="col-6">
-      <div>Pohlaví</div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="gender"
-          id="male"
-          [value]="UserGender.MALE"
-        />
-        <label class="form-check-label" for="male"> Muž </label>
-      </div>
-      <div class="form-check">
-        <input
-          class="form-check-input"
-          type="radio"
-          name="gender"
-          id="female"
-          [value]="UserGender.FEMALE"
-        />
-        <label class="form-check-label" for="female"> Žena </label>
-      </div>
-    </div>
-  </div>
-  <h3>Adresa</h3>
-  <ng-container formGroupName="address">
-    <label for="street">Ulice a č.p. *</label>
-    <input type="text" class="form-control mb-2" id="street" />
+<form (ngSubmit)="submitForm()" [formGroup]="form">
     <div class="row">
-      <div class="col-8">
-        <label for="street">Město *</label>
-        <input type="text" class="form-control mb-2" id="street" />
-      </div>
-      <div class="col-4">
-        <label for="country">Stát *</label>
-        <select id="country" class="form-control">
-          <option value="cz">Česko</option>
-          <option value="sk">Slovensko</option>
-        </select>
-      </div>
+        <div class="col-6">
+            <label for="firstName">Jméno *</label>
+            <input type="text" class="form-control mb-2" id="firstName" formControlName="firstName"/>
+        </div>
+        <div class="col-6">
+            <label for="lastName">Příjmení *</label>
+            <input type="text" class="form-control mb-2" id="lastName" formControlName="lastName"/>
+        </div>
     </div>
-  </ng-container>
-  <div class="text-end">
-    <button type="button" class="btn btn-lg btn-secondary my-4 me-2" (click)="resetForm()">
-      Vyčistit
-    </button>
-    <button type="submit" class="btn btn-lg btn-success my-4">
-      Uložit
-    </button>
-  </div>
+    <div class="row">
+        <div class="col-6">
+            <label for="age">Věk (alespoň 18 let)</label>
+            <input type="number" class="form-control mb-2" id="age" formControlName="age"/>
+        </div>
+        <div class="col-6">
+            <div>Pohlaví</div>
+            <div class="form-check">
+                <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="male"
+                        [value]="UserGender.MALE"
+                        formControlName="gender"
+                />
+                <label class="form-check-label" for="male"> Muž </label>
+            </div>
+            <div class="form-check">
+                <input
+                        class="form-check-input"
+                        type="radio"
+                        name="gender"
+                        id="female"
+                        [value]="UserGender.FEMALE"
+                        formControlName="gender"
+                />
+                <label class="form-check-label" for="female"> Žena </label>
+            </div>
+        </div>
+    </div>
+    <h3>Adresa</h3>
+    <ng-container formGroupName="address">
+        <label for="street">Ulice a č.p. *</label>
+        <input type="text" class="form-control mb-2" id="street" formControlName="street"/>
+        <div class="row">
+            <div class="col-8">
+                <label for="street">Město *</label>
+                <input type="text" class="form-control mb-2" id="city" formControlName="city"/>
+            </div>
+            <div class="col-4">
+                <label for="country">Stát *</label>
+                <select id="country" class="form-control" formControlName="country">
+                    <option value="cz">Česko</option>
+                    <option value="sk">Slovensko</option>
+                </select>
+            </div>
+        </div>
+    </ng-container>
+    <div class="text-end">
+        <button type="button" class="btn btn-lg btn-secondary my-4 me-2" (click)="resetForm()">
+            Vyčistit
+        </button>
+        <button type="submit" class="btn btn-lg btn-success my-4">
+            Uložit
+        </button>
+    </div>
 </form>
